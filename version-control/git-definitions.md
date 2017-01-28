@@ -1,6 +1,6 @@
 # Git Definitions
 
-**Instructions: ** Define each of the following Git concepts.
+**Instructions:** Define each of the following Git concepts.
 
 * What is version control?  Why is it useful?
 
@@ -17,3 +17,5 @@ A commit is the action of accepting an update to files or folders within the rep
 * What is a merge conflict?
 
 A merge conflict occurs when a file(s) being integrated with a current working branch changes something that Git cannot figure out how to merge on its own.  This may occur in varius situations like when to people edit the same file on the same line or delete files that were only modified by another person.  Git notifies us of conflicts and then we provide it instruction on how to resolve the issue.
+
+Now that we know some fundamental things about Git... Let's Git to it!!!
