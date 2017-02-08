@@ -1,0 +1,25 @@
+.photodiv {
+	display: block;
+	margin-left: auto;
+  	margin-right: auto;
+  	width: 280px;
+}
+
+#octopus {
+	position: absolute;
+	margin-top: 60px;
+	margin-left: 15px;
+	z-index: -3;
+}
+
+#hat {
+	position: absolute;
+  	z-index: -1;
+}
+
+#glasses {
+	position: absolute;
+	margin-top: 160px;
+	margin-left: 57px;
+	z-index: -2;
+}
