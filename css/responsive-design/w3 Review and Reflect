@@ -1,0 +1,28 @@
+Name at least three categories of CSS adjustments (example: colors)?
+
+	Text, basic box, background & borders, paged media, animation, tranform, lists & counters...
+
+What are the three ways to link a CSS rule to an HTML document? 
+
+	Inline styles, internal stylesheet, external stylesheet.
+
+Which one is the best and why?
+
+	An external stylesheet is typically best because it keeps html and css more clearly separated for code editing/review and numerous style sheets can be linked externally to accomplish various separate tasks in a more organized fashion.  Furthermore, linked external style sheets can be very easily applied to more than one HTML page.
+
+
+What is a selector? Give examples of at least three types of selectors.
+
+	A selector is a property within CSS rules used to assign the declarations of the rule to particular elements.  Examples of selectors can be direct names of HTML tags, a class, id, or pseudoselector formed in combination with an HTML tag.
+
+What is the box model?
+
+	It refers to CSS design and layout principle regarding all HTML elements being considered as stylable boxes consisting of: margins, borders, padding, and the actual content.
+
+Explain and give an example of the cascading effect of CSS.
+
+	The cascading aspect of CSS is a process of the language which determines what CSS would be applied in situations where the same elements are modified by overriding CSS rules.  An example of this in action is that if one set a width of 100px for an element but later in the same document referenced that same element with a 200px, the language would use the 200px because it appeared later in the "cascade" of top-to-bottom code.  Another example is the impact of this with regard to linked stylesheets.  If multiple style sheets edit the same elements the sheet linked last will overide previous rules from earlier stylesheets.
+
+Name two CSS techniques that assist in responsive design.
+
+	Mobile-first responsive design is one technique used to prioritize functionality on a mobile devices. Media queries combined with transforms/animations can produce smooth and dynaic responsive designs.  Use of frameworks like Bootstrap are also effective techniques for creating responsive pages.
