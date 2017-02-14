@@ -1,0 +1,17 @@
+For instance, how will your robot figure out which floor button to press?
+
+Elevator Algorithm
+
+Default status
+- position at floor 1 (lobby/ground floor)
+- await instruction from user button press for direction of up/down tranpsort
+	- elevator call for up/down transport can come from any hallway button of any floor
+
+Initial Call
+- Record the users request for either up/down travel.
+- If the passenger is on the ground floor, open door for 10 seconds.  After 10 seconds close the door slowly but stop closing and reopen if the buffer section of metal (acting as a button) in the center is pressed before the doors can fully close.
+	- if elevator receives command for passenger destination from the internal elevator control panel, move up/down the number of floors toward the floor where the passenger called from by finding the difference between their floor number and the first floor.
+	- upon arrival, open door for 10 seconds.  After 10 seconds close the door slowly but stop closing and reopen if the buffer section of metal (acting as a button) in the center is pressed before the doors can fully close.
+- If the passenger is not on the ground floor, move up/down the number of floors toward the floor where the passenger called from by finding the difference between their floor number and the first floor.
+	- upon stop at their floor and open the door
+	
