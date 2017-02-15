@@ -1,0 +1,58 @@
+Elevator Algorithm
+
+Default status
+- position at floor 1 (lobby/ground floor)
+- await instruction from user button press for direction of up/down tranpsort
+	- elevator call for up/down transport can come from any hallway button of any floor
+
+Initial Call from Default State
+- Record the users request for either up/down travel.
+- If the passenger is on the ground floor, open door for 10 seconds.  After 10 seconds close the door slowly (moving approx. 3 inches per second) but stop closing and reopen if the buffer section of metal (acting as a button) in the center is pressed before the doors can fully close.
+- If the passenger is not on the ground floor, move up/down the number of floors toward the floor where the passenger called from by finding the difference between their floor number and the first floor.
+	- upon stop at their floor and open the dooropen door for 10 seconds.
+	- After 10 seconds close the door slowly (moving approx. 3 inches per second) but stop closing and reopen if the buffer section of metal (acting as a button) in the center is pressed before the doors can fully close.
+	- after arriving at the initial call destination listen for button press from boarded passenger for 15 seconds before either returning to default state or moving to another floor to pickup a different passenger.
+		- If a new callers floor number is lower/higher in value than the current floor move down/up a number of floors equal to the difference between current floor and the callers floor.
+	
+Transporting Passengers to Destinations Selected from Internal Panel
+- if elevator receives command for passenger destination from the internal elevator control panel, move up/down (based on selection made in initial summon) the number of floors toward the floor where the passenger called from by finding the difference between their floor number and their selected destination.
+	-if multiple destinations are selected, stop at each destination in order of what is closest to the current floor
+	- upon arrival at a destination, open door for 10 seconds.  After 10 seconds close the door slowly but stop closing and reopen if the buffer section of metal (acting as a button) in the center is pressed before the doors can fully close.
+-after all destinations have been vistited, return to default state or listen for calls from other floors
+
+
+Shower Algorithm
+
+Assessing Need for Shower
+- Has 24 hrs past since last shower?
+	- if yes, follow shower process
+	- if not
+		- use sense of smell to ascertain degree of arm pit offensiveness
+		- use hands to touch hair and various parts of the body checking for oilyness, sweat, or stickyness
+		- if either of the above conditions are true, take the shower
+		
+Shower Stage
+- Ensure shower stall has a bottle of shampoo, bar of soap, and bottle of conditioner
+	- if any of these items are not present, locate them in house or reassasess shower capability prior to purchasing additional supplies
+		- if shower capability is diminished but still necessary shower without follwing steps involving those three items
+- Begin by setting water temperature to warm
+- Undress
+- if water flows from both a lower faucet and shower head, but the default flow is through the faucet, switch to upper faucet by toggling lever centered above faucet to the down position
+- Step into shower and position ones self facing the opposite direction of the faucet and standing directly under the path of the water flowing from the shower head
+- if one has hair on one's head, soak hair combing fingers through it
+	- if not breifly rub scalp
+- locate and pickup shampoo
+- gently rub approx 1 tbsp of shampoo into scalp combing it through hair and accross scalp until well lathered
+	- maintain that process until hair/scalp is well lathered in shampoo and continue for approximately 3 minutes or until hair/scalp is noticibly less oily. Regardless, keep this process under 5 minutes
+- begin rinsing out shampoo and continue until you can no longer feel the texture of shampoo in when running fingers along scalp or through hair
+- turn to face the shower head so that stream runs accross top of head but not directly into the face
+- if one has hair, pick up conditioner and step forward out from underneath the tragectory of the water flowing from the shower head such that the stream is not making contact with any part of the body higher than the calf.  Adjust the shower head tragectory if there isn't enough room inside the stall to move forward and accoplish this
+	- apply condioner to hair and scalp
+	- until instructed to rinse out conditioner, avoid getting water in hair by adusting stance or leaning neck left, right, forward, or back, if one has long hair considering repositioning or wrapping it on top of ones head
+- pick up bar of soap in one hand
+- with both hands, make breif contact with bar of soap to each external skin surface area of the body, and use free hand to help lather the soap spreading it accross the skin
+- once entire body has lathered soap applied to it, step forward and/or adjust the shower head so that one can rinse soap from ones face by gently running water accross it and rubbing away soap with hands
+- continue rinsing soap off the body from top to bottom while
+- once soap has been cleared away, follow same process for rinsing out shampoo but in this case rinse out conditioner
+
+
