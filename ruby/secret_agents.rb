@@ -7,11 +7,15 @@ def encrypt(secret_password)
   #password so that the process is run on each character
   while index < secret_password.length
     #For each index position of the string we reassigned the value to the next alphabetical order index value
-    secret_password[index] = secret_password[index].next
-    encrypted_pw = secret_password
+    unless secret_password[index] == "z"
+      secret_password[index] = secret_password[index].next
+    end
     if secret_password[index] == "!"
       secret_password[index] = " "
+      elsif secret_password[index] == "z"
+      secret_password[index] = "a"
     end
+    encrypted_pw = secret_password
     index += 1
   end
   return encrypted_pw
@@ -26,10 +30,12 @@ decrypted_pw = ""
 decrypt_idx = 0
 index = 0
   while index < encrypted_pw.length
-  #Experimental code for decrypting space
-    #if encrypted_pw[index] == " "
-      #encrypted_pw[index] = 0
-    #end
+=begin 
+    #Experimental code for decrypting spaces
+    if encrypted_pw[index] == " "
+      encrypted_pw[index] = 0
+    end
+=end
     #assign index position char of encrypted_pw to pw_char variable
     pw_char = encrypted_pw[index]
     #decrypt_idx is being set the index position of the alphabet indicated by the letter stored in pw_char
