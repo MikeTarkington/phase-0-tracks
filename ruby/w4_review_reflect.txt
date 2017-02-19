@@ -1,0 +1,87 @@
+
+W4 Review and Reflect
+
+Variables
+
+1. What is a variable? Why might a programmer use a variable?
+
+A variable is like a named storage container for a peice of data.  Programmers use them to work with data that can change depending on the functions of the program.
+
+
+2. If the value of first_name is "Abraham" and last_name is "Lincoln", explain the order in which Ruby will run the line full_name = first_name + last_name, and what the final result will be.
+
+Ruby will add last_name to first_name and then store the value in the full_name variable. Since both variables contain strings, they will be combined into one string that would look like "AbrahamLincoln".  (If one wanted a space to appear, it could be achieved by writing full_name = first_name + " " + last_name or ensuring that the string variable stored in first_name has a space at the end or last_name has a space at the beginning.) 
+
+
+Data Types
+
+3. For each of the following data types, write a short definition and give at least one example of when you might use the data type in a program. (Don't use an example we've already provided.)
+
+string - a sequence of characters that is commonly used to store data points of text such as a persons name.
+
+integer - a whole number that can be positive negative or zero and is used frequently in things like conditional loop statements
+
+float - a fraction represented by a decimal number often used to include currency values in programs
+
+nil - a unique data type which essentially states "there is nothing here", it is commonly used for variable assignment when there may or may not be a data value assigned at another point of the program
+
+boolean - a value of true or false, booloeans are frequently used for conditional statements of control flow
+
+
+Algorithms
+
+4. What is an algorithm?
+
+A self-contained series of step-by-step instructions to output specified results.
+
+
+5. What are two common categories of algorithm in computer science?
+
+combinatorial algorithms and computational mathematics	
+
+
+Methods
+
+6. What is a method? Why might a programmer choose to use a method?
+
+In Object Oriented Programming a method is a procedure executed in code that accepts an argument(s) as data on which it will perform instructed processes.  Programmers use them to segment, organize, and control interraction between the sometimes overwhelming number of tasks that need to performed within a program.
+
+
+7. Define the following terms as they relate to a method. 
+
+return value - the explicit or implicit value produced by the completed execution of a method
+
+side effect  - an effect of a method other than its return value, that has relevence to other parts of the program ie a global variable (which isn't necessarily the return variable) modified through the course of the method
+
+parameter - sets the number of arguments taken by a method and their data type format
+
+argument - the data point(s) given upon method call that will be used as values in executing the procedures of a method
+
+implicit return - a method that doesn't explicitly use `return var_name` to get state its intended return value, will instead return the data point from the last line of code run in the method
+
+
+8. What are global scope and method scope? How do those scopes impact the availability of data at different points in a program?
+
+Variables declared in the global scope will be accessible for alteration through any part of the program while those declared within the scope of a method will only be accessible to code executed within that method.
+
+
+Control Flow
+
+9. What is control flow? Why might a programmer choose to use flow control?
+
+Control flow is a way of giving instrucitons to execute certain portions of code based on specified conditions.  In a world with so many varying possible outcomes, desires, destinations, control flow allows programmers to respond to the many various situations that life presents as they setup their code to behave diffrently in those various situations.
+
+
+10. Define the following terms as they relate to flow control.
+
+loop - a loop is a block of code that is repeated until a certain condition is met
+
+if - this statement would include a conditional requirement that would trigger exection of a code block when met
+
+else - as part of an `if` control flow pattern, `else` is an alternate instruction to perform when when if or elsif conditions were not met
+
+elsif - inside an `if` control flow pattern, `elsif` is a secondary, tertiary, etc... set of conditions that would have their own code blocks to be executed should the condition be met.  if the condition is met it would exit the program.
+
+while - a loop type that continues a block of code while a certain condition remains true
+
+until - a loop that continues a block of text until a condition is met
