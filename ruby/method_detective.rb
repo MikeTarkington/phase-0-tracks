@@ -16,6 +16,7 @@ p "enhance".center(15)
 
 puts "Stop! You’re under arrest!".upcase
 p "Stop! You’re under arrest!".upcase! #oddly when using p to print it treats
+puts "Stop! You’re under arrest!".upcase! #demonstrating it works with puts
 #the apstrophe rather strangely
 # => "STOP! YOU’RE UNDER ARREST!"
 
@@ -25,7 +26,7 @@ p "the usual" + " suspects"
 p "the usual" << " suspects"
 #=> "the usual suspects"
 
-p nil
+puts " "
 
 p " suspects".insert(0, "the usual")
 p " suspects".prepend("the usual")
@@ -35,15 +36,18 @@ p "The case of the disappearing last letter".chomp("r")
 p "The case of the disappearing last letter".chop
 # => "The case of the disappearing last lette"
 
-# "The mystery of the missing first letter".<???>
+p "The mystery of the missing first letter"[1..-1]
+p "The mystery of the missing first letter".sub("T", "")
 # => "he mystery of the missing first letter"
 
-# "Elementary,    my   dear        Watson!".<???>
+p "Elementary,    my   dear        Watson!".split.join(" ")
+p "Elementary,    my   dear        Watson!".squeeze(" ")
 # => "Elementary, my dear Watson!"
 
-# "z".<???>
+p "z".ord
 # => 122
 # (What is the significance of the number 122 in relation to the character z?)
+#it is the characters listed position on the ASCII table
 
-# "How many times does the letter 'a' appear in this string?".<???>
+p "How many times does the letter 'a' appear in this string?".count("a")
 # => 4
