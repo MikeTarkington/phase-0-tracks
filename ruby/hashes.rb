@@ -28,6 +28,7 @@ client_info = {
 puts ""
 
 puts "WELCOME TO THE INTERIOR DESIGN CLIENT INFO SYSTEM"
+puts "warning: this program can be a real jerk if you answer incorrectly... good luck."
 puts ""
 puts "Answer the following questions about your client..."
 
@@ -59,7 +60,7 @@ else
   puts "You didn't enter y or n... to the choppin block with ya!"
 end
 
-puts "Enter their street address:"
+puts "Enter their address:"
 client_info[:address] = gets.chomp
 puts "If \"#{client_info[:address]}\" is correct type \"y\", if not type \"n\" to re-enter."
 correct = gets.chomp
@@ -112,26 +113,85 @@ else
   puts "You didn't enter y or n... what is the meaning of this!"
 end
 
-puts "Enter their favorite colors (type \"done\" when finished listing):"
+puts "Enter their favorite colors:"
 arr_fav_colors = []
-until client_info[:fav_colors] == "done"
+idx = 0
+until correct == "done"
   puts "Color:"
   client_info[:fav_colors] = gets.chomp
-  puts "If \"#{client_info[:fav_colors]}\" is correct type \"y\", if not type \"n\" to re-enter."
+  puts "If \"#{client_info[:fav_colors]}\" is correct type \"y\", if not type \"n\" to re-enter. (type \"done\" when finished listing)"
   correct = gets.chomp
   if correct == "y"
     arr_fav_colors << client_info[:fav_colors]
     client_info[:fav_colors] = arr_fav_colors
   elsif correct == "n"
     puts "What is the correct color:"
-    client_info[:name] = gets.chomp
+    client_info[:fav_colors] = gets.chomp
+    arr_fav_colors[idx] = client_info[:fav_colors]
+    client_info[:fav_colors] = arr_fav_colors
+  elsif correct == "done"
     arr_fav_colors << client_info[:fav_colors]
     client_info[:fav_colors] = arr_fav_colors
   else
     puts "You didn't enter y or n... but that's totally okay... You do you."
   end
+  idx += 1
 end
 
+puts "If you'd like to update any of the client data, type the corresponding item: name, age, address, children, child count, decor theme, spend target, or favorite colors (if no updates are needed type \"none\"):"
+edit_pref = gets.chomp
+if edit_pref == "name"
+  puts "What is the updated name?"
+  client_info[:name] = gets.chomp
+elsif edit_pref == "age"
+  puts "What is the updated age?"
+  client_info[:age] = gets.chomp.to_i
+elsif edit_pref == "address"
+  puts "What is the updated address?"
+  client_info[:address] = gets.chomp
+elsif edit_pref == "children"
+  puts "Do they have children \"y\" or \"n\"?"
+  client_info[:children] = gets.chomp
+  if client_info[:children] == "y"
+    client_info[:children] = true
+  elsif client_info[:children] == "n"
+    client_info[:children] = false
+  else
+    puts "That answer sucked.. better luck next time."
+  end
+elsif edit_pref == "child count"
+  puts "How many children do they have?"
+  client_info[:child_count] = gets.chomp.to_i
+elsif edit_pref == "decor theme"
+  puts "What is their decore theme?"
+  client_info[:decor_theme] = gets.chomp
+elsif edit_pref == "spend target"
+  puts "What is the updated spending target (digits only)?"
+  client_info[:spend_target] = gets.chomp.to_f
+elsif edit_pref == "favorite colors"
+  puts "Enter their favorite colors:"
+  arr_fav_colors = []
+  color_status = nil
+  until color_status == "done"
+    puts "Color:"
+    client_info[:fav_colors] = gets.chomp
+    puts "Type \"next\" to enter another or \"done\" when finished listing:"
+    color_status = gets.chomp
+    if color_status == "next"
+      arr_fav_colors << client_info[:fav_colors]
+      client_info[:fav_colors] = arr_fav_colors
+    elsif color_status == "done"
+      arr_fav_colors << client_info[:fav_colors]
+      client_info[:fav_colors] = arr_fav_colors
+    else
+      puts "You didn't enter y or n... but that's totally okay... You do you."
+    end
+  end
+elsif edit_pref == "none"
+  puts "You made it through using this program.  Hope it didn't hurt too much."
+else
+  puts "That's not one of the options.  Restart the program to update further. Buh bye"
+end
 
 puts ""
 puts client_info
