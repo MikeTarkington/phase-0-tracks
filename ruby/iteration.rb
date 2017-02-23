@@ -44,32 +44,58 @@ end
 p pets
 
 =begin
-A method that iterates through the items, deleting any that meet a certain condition (for example, deleting any numbers that are less than 5).
+Use the documentation to find other Array and Hash methods that take blocks, and that can accomplish the tasks below, then add sample calls to phase-0-tracks/ruby/iteration.rb -- one for the array, and one for the hash.
 
-A method that filters a data structure for only items that do satisfy a certain condition (for example, keeping any numbers that are less than 5).
+You can use simple (nonmeaningful) data for your example calls -- an array of integers or letters would be fine, for instance.
 
-A different method that filters a data structure for only items satisfying a certain condition -- Ruby offers several options!
+1. A method that iterates through the items, deleting any that meet a certain condition (for example, deleting any numbers that are less than 5).
 
-A method that will remove items from a data structure until the condition in the block evaluates to false, then stops (you may not find a perfectly working option for the hash, and that's okay).
+2. A method that filters a data structure for only items that do satisfy a certain condition (for example, keeping any numbers that are less than 5).
+
+3. A different method that filters a data structure for only items satisfying a certain condition -- Ruby offers several options!
+
+4. A method that will remove items from a data structure until the condition in the block evaluates to false, then stops (you may not find a perfectly working option for the hash, and that's okay).
 =end
 
-numbers = [1, 2, 3, 4, 5,]
-hasher = {
-  one: 1,
-  two: 2,
-  three: 3,
-  four: 4,
-  five: 5,
-}
+numbers_1 = [1, 2, 3, 4, 5, 6, 7, 8,]
+numbers_2 = [1, 2, 3, 4, 5, 6, 7, 8,]
+numbers_3 = [1, 2, 3, 4, 5, 6, 7, 8,]
+numbers_4 = [1, 2, 3, 4, 5, 6, 7, 8,]
 
+num_hash_1 = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,}
+num_hash_2 = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,}
+num_hash_3 = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,}
+num_hash_4 = {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,}
+
+#1
 #array
-def deleter
-  numbers = [1, 2, 3, 4, 5,]
-  numbers.each do |numbers|
-    yield numbers
-  end
-end
-
-deleter.delete_if {|numbers| numbers < 3 }
-
+p numbers_1.delete_if {|numbers| numbers < 5 }
 #hash
+p num_hash_1.delete_if {|word, numeral| word.length > 3 }
+
+=begin
+#another alternative for delete_if could be .reject
+p numbers_2.reject {|numbers| numbers > 5 }
+#hash
+p num_hash_2.reject {|word, numeral| numeral.even? }
+=end
+
+#2
+#array
+p numbers_2.keep_if {|numbers| numbers > 5 }
+#hash
+p num_hash_2.keep_if {|word, numeral| numeral.even? }
+
+#3
+#array
+p numbers_3.select {|numbers| numbers.odd? }
+#hash
+p num_hash_3.select {|word, numeral| numeral == 3 || numeral == 6 }
+
+#4
+#array
+p numbers_4.drop_while {|number| number != 4 }
+#hash
+p num_hash_4.drop_while {|word, numeral| word.size < 5 }
+
+#.take_while is an interesting opposite to drop_while
