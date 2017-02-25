@@ -12,8 +12,7 @@ Print the latest version of the hash, and exit the program.
 Be sure to pseudocode, and leave your pseudocode in as comments.
 =end
 
-client_info = Hash.new("N/A")
-
+#creating hash with default key values
 client_info = {
   name: "N/A",
   age: "N/A",
@@ -26,7 +25,7 @@ client_info = {
 }
 
 puts ""
-
+#begins interface
 puts "WELCOME TO THE INTERIOR DESIGN CLIENT INFO SYSTEM"
 puts "warning: this program can be a real jerk if you answer incorrectly... good luck."
 puts ""
@@ -34,6 +33,9 @@ puts "Answer the following questions about your client..."
 
 #INTERIOR DESIGNER USER INPUTS
 
+#gathers full name and capitalizes the first letter (lazily not the second)
+#then inerpolates their response into a question for confirmation offering them
+#the opportunity use a different answer thus reassigning the key value again
 puts "Enter their full name:"
 client_info[:name] = gets.chomp.capitalize
 puts "If \"#{client_info[:name]}\" is correct type \"y\", if not type \"n\" to re-enter."
@@ -47,6 +49,7 @@ else
   puts "You didn't enter y or n... you stink!"
 end
 
+#same process as above but for age and coercion into a interger
 puts "Enter their age:"
 client_info[:age] = gets.chomp.to_i
 puts "If \"#{client_info[:age]}\" is correct type \"y\", if not type \"n\" to re-enter."
@@ -60,6 +63,7 @@ else
   puts "You didn't enter y or n... to the choppin block with ya!"
 end
 
+#continued process with question for address
 puts "Enter their address:"
 client_info[:address] = gets.chomp
 puts "If \"#{client_info[:address]}\" is correct type \"y\", if not type \"n\" to re-enter."
@@ -73,6 +77,9 @@ else
   puts "You didn't enter y or n... you're a bad user!"
 end
 
+#question whether or not they have children and conditional flow offering theme
+#another question about how many children if they answered yes
+#the number of children response is coerced into an integer
 puts "Do they have children? Type \"y\" or \"n\"."
 client_info[:children] = gets.chomp
 if client_info[:children] == "y"
@@ -87,6 +94,8 @@ if client_info[:children] == true
   client_info[:child_count] = gets.chomp.to_i
 end
 
+#same process for their decor theme as for previous questions answered with a
+#string
 puts "Enter their decor theme:"
 client_info[:decor_theme] = gets.chomp
 puts "If \"#{client_info[:decor_theme]}\" is correct type \"y\", if not type \"n\" to re-enter."
@@ -100,6 +109,8 @@ else
   puts "You didn't enter y or n... you must not have any sense of decor."
 end
 
+#same process for asking their target cost accept that it coerces to a float
+#data type since currency values are commonly stored that way
 puts "Enter their target cost for the project (digits only):"
 client_info[:spend_target] = gets.chomp.to_f
 puts "If \"#{client_info[:spend_target]}\" is correct type \"y\", if not type \"n\" to re-enter."
@@ -113,6 +124,10 @@ else
   puts "You didn't enter y or n... what is the meaning of this!"
 end
 
+#we hadn't covered nested data structures yet but I was curious to try getting
+#an array to be stored as a hash key value... so i did
+#it even gives them a chance to correct each color entry as they're doing it
+#they can add as many colors as they want
 puts "Enter their favorite colors:"
 arr_fav_colors = []
 idx = 0
@@ -138,6 +153,12 @@ until correct == "done"
   idx += 1
 end
 
+#per the instructions, I added an opportunity for the user to change any of the
+#previously set key values
+#nested control flow allows them to pick a hash key value they want to edit
+#and then it gives them a quick way to provide the update depending on which
+#value they chose to modify
+#if they don't want to change anything they type "none"
 puts "If you'd like to update any of the client data, type the corresponding item: name, age, address, children, child count, decor theme, spend target, or favorite colors (if no updates are needed type \"none\"):"
 edit_pref = gets.chomp
 if edit_pref == "name"
@@ -171,22 +192,22 @@ elsif edit_pref == "spend target"
 elsif edit_pref == "favorite colors"
   puts "Enter their favorite colors:"
   arr_fav_colors = []
-  color_status = nil
-  until color_status == "done"
-    puts "Color:"
-    client_info[:fav_colors] = gets.chomp
-    puts "Type \"next\" to enter another or \"done\" when finished listing:"
-    color_status = gets.chomp
-    if color_status == "next"
-      arr_fav_colors << client_info[:fav_colors]
-      client_info[:fav_colors] = arr_fav_colors
-    elsif color_status == "done"
-      arr_fav_colors << client_info[:fav_colors]
-      client_info[:fav_colors] = arr_fav_colors
-    else
-      puts "You didn't enter y or n... but that's totally okay... You do you."
-    end
+color_status = nil
+until color_status == "done"
+  puts "Color:"
+  client_info[:fav_colors] = gets.chomp
+  puts "Type \"next\" to enter another or \"done\" when finished listing:"
+  color_status = gets.chomp
+  if color_status == "next"
+    arr_fav_colors << client_info[:fav_colors]
+    client_info[:fav_colors] = arr_fav_colors
+  elsif color_status == "done"
+    arr_fav_colors << client_info[:fav_colors]
+    client_info[:fav_colors] = arr_fav_colors
+  else
+    puts "You didn't enter y or n... but that's totally okay... You do you."
   end
+end
 elsif edit_pref == "none"
   puts "You made it through using this program.  Hope it didn't hurt too much."
 else
