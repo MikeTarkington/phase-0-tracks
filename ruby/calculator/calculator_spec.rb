@@ -4,7 +4,7 @@
 # multiply two integers and return an integer
 
 # RSpec
-# 'describe' block for each group of tests  
+# 'describe' block for each group of tests
   # 'it' block for each individual test
     # expect(<YOUR CODE>).to eq <RESULT>
 
@@ -24,4 +24,16 @@ describe Calculator do
   it "multiplies two integers" do
     expect(calculator.multiply(2,3)).to eq 6
   end
+
+  it "divides two integers" do
+    expect(calculator.divide(12,2)).to eq 6
+  end
+
 end
+
+# a cheat sheet
+# https://www.anchor.com.au/wp-content/uploads/rspec_cheatsheet_attributed.pdf
+#the docs
+#http://rspec.info/documentation/3.5/rspec-core/
+#seems to have more lay descriptions of documentation
+# https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
