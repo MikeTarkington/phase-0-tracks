@@ -15,27 +15,19 @@ class GuessGame
 
   def initialize(target_word)
     @target_word = target_word.chars
-    @guess_progress = []
+    @guess_progress = "_" * @target_word.length
+    @guess_progress = @guess_progress.chars
   end
 
   def guess_checker(user_guess)
-    #creates base array of underscores based on the total length of the target word
-    guess_progress = "_" * @target_word.length
-    #breaks the underscores up into an array so that the underscores can be more easily modified by iteration
-    @guess_progress = guess_progress.chars
+    guess_indices = []
     if user_guess.chars == @target_word
       "Holy macaroni! You guessed the magic word!"
     else
       @target_word.each do |char_guess|
-        # if char_guess == user_guess
+        if char_guess == user_guess
           @guess_progress[@target_word.index(user_guess)] = user_guess
-          # @guess_progress << user_guess
-        # elsif char_guess != user_guess && @guess_progress[@target_word.index(user_guess)] != "_"
-        #   unless @guess_progress[@target_word.index(user_guess)] == "_"
-          # @guess_progress[@target_word.index(user_guess)] = "_"
-            # @guess_progress << "_"
-        #   end
-        # end
+        end
       end
       @guess_progress
     end
