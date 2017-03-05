@@ -20,14 +20,15 @@ class GuessGame
   end
 
   def guess_checker(user_guess)
-    guess_indices = []
+    idx = 0
     if user_guess.chars == @target_word
       "Holy macaroni! You guessed the magic word!"
     else
       @target_word.each do |char_guess|
         if char_guess == user_guess
-          @guess_progress[@target_word.index(user_guess)] = user_guess
+          @guess_progress[idx] = user_guess
         end
+        idx += 1
       end
       @guess_progress
     end
