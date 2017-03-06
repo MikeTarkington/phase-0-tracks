@@ -26,6 +26,7 @@
 # -consider adding function to guess the entire word and end the game if they are correct
 # -based once the loop ends a congratulatory message or taunt should be displayed depending on whether or not they've succeeded
 
+# -- SOME TEST CODE I WROTE FOR PLANNING MY PROGRAM --
 # class ExampleClass
 
 #   attr_accessor :new_array
@@ -48,6 +49,8 @@
 # example_instance = ExampleClass.new("abcb")
 # p example_instance.char_repalacer("a")
 # p example_instance.char_repalacer("b")
+
+# -- THE BUSINESS LOGIC OF THE PROGRAM --
 
 class GuessGame
 
@@ -76,7 +79,7 @@ class GuessGame
 
 end
 
-# -- DRIVER CODE TESTS --
+# -- DRIVER CODE FOR TESTING PURPOSES --
 
 # test_init = GuessGame.new("testing")
 # #argument of a character or full word will be passed to guess checker
@@ -90,7 +93,7 @@ end
 puts "Welcome to the word guessing game!"
 puts " "
 puts "Please begin by having player 1 enter the word that player 2 will attempt to guess (Hey player 2! No peeking!):"
-target_word = gets.chomp!
+target_word = STDIN.gets.chomp
 game_instance = GuessGame.new(target_word)
 
 puts "Now player 2 enters their guesses. Player 2 can try to guess the entire word or guess one character at a time.  They will only get as many guesses as there are characters in the word.  Please only enter lower case alphabet characters."
@@ -100,8 +103,8 @@ idx = 0
 remaining_guesses = target_word.length - 1
 while target_word.length > idx
   puts "what is your guess?"
-  current_guess = gets.chomp
-  if current_guess == target_word
+  current_guess = STDIN.gets.chomp
+  if current_guess == target_word || current_guess.chars == game_instance.guess_checker(current_guess)
     puts "#{game_instance.guess_checker(current_guess)}"
     break
   elsif current_guess.length > 1 && current_guess != target_word
@@ -118,6 +121,6 @@ while target_word.length > idx
   idx += 1
 end
 
-if target_word.chars != game_instance.guess_checker(current_guess)
-  puts "You've failed us all. Go sit in the corner and face the wall while thinking hard about your pitiful performance."
+if target_word.chars.join(" ") != game_instance.guess_checker(current_guess) && target_word != current_guess
+  puts "You've failed us all. Go sit in the corner and face the wall while contemplating your pitiful performance."
 end
