@@ -1,0 +1,31 @@
+1. What are classes? Be sure to define the following terms in your explanation and describe the relationships between them:
+
+class
+- It's a basic blueprint from which objects can be created.  It also creates the opportunity for use of instances and the application of a set of methods onto class objects.
+
+state
+-The combined attributes of a class as set by an initialize statement are the composition of a classes state.
+
+behavior
+- A classes behaviors are set by the methods contained in the class.
+
+instance variable
+- An instance variable can be modified specifically for instances of the class using the behavioral methods of the class. They need to be initialized first.
+
+instance method
+- The initialize method is called to create new instances of the class and methods contents set the default attributes of class instances.
+
+2. What are attributes?
+- They are the class variables set by the initialize method and are accessible to other methods of the class or code outside the class in cases of granted read/write permission via attr_reader, attr_writer, or attr_accessor.
+
+3. Give an example of a real world object, and describe how you might assign its attributes if you were to design a class to represent that object.
+- A dog would could have attributes of hair color, hair length, and eye color or top running speed.
+
+4. What is the purpose of the initialize method? When does it run?
+- It runs upon creation of a new instance and it's purpose is to set baseline attributes for any instance of that class.
+
+5. What are modules?
+- They are a set of logically related methods that can be quickly included into a class with handy syntax of `include ModuleName` inside a class.
+
+6. What are the different ways you can use a module?
+- Module methods can be called on directly by use of the `Modulename.methodname()` syntax or they can be included into classes to make all the module methods available to instances of the class.

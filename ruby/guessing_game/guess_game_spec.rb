@@ -1,23 +1,18 @@
 require_relative 'guess_game'
 
 describe GuessGame do
-  let(:target_word) { GuessGame.new("testing") }
+  let(:game_instance) { GuessGame.new("testing") }
 
-  it "stores the list items given on initialization" do
-    expect(list.get_items).to eq ["do the dishes", "mow the lawn"]
+  it "returns string which is created out of altered array when character matches are found" do
+    expect(game_instance.guess_checker("s")).to eq "_ _ s _ _ _ _"
   end
 
-  it "adds an item to the list" do
-    list.add_item("mop")
-    expect(list.get_items).to eq ["do the dishes", "mow the lawn", "mop"]
+  it "modify index corresponding index position if multiple character matches are found for the users guess" do
+    expect(game_instance.guess_checker("t")).to eq "t _ _ t _ _ _"
   end
 
-  it "deletes an item" do
-    list.delete_item("do the dishes")
-    expect(list.get_items).to eq ["mow the lawn"]
+  it "if the user guesses the entire word before running out of opportunities to guess should give message for success" do
+    expect(game_instance.guess_checker("testing")).to eq "Holy macaroni! You guessed the magic word! You're a winner!"
   end
 
-  it "retrieves an item by index" do
-    expect(list.get_item(0)).to eq "do the dishes"
-  end
 end
