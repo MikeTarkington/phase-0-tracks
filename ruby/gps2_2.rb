@@ -48,8 +48,8 @@ end
 p item_remover(our_list, "bread")
 
 # Method to update the quantity of an item
-# input:
-# steps:
+# input:The data structure we're updating, the item to update, and the quantity value for the item
+# steps:define method with necessary parameters, assign new value to specified key of hash, ensure implicit return of hash after modification
 # output:
 
 def item_qty(grocery_list, item_name, qty)
