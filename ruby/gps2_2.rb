@@ -45,7 +45,7 @@ def item_remover(grocery_list, item_name)
   grocery_list
 end
 
-p item_remover(our_list, "bread")
+p item_remover(our_list, "carrots")
 
 # Method to update the quantity of an item
 # input:
@@ -57,11 +57,17 @@ def item_qty(grocery_list, item_name, qty)
   grocery_list
 end
 
+p item_qty(our_list, "apples", 5)
+
 # Method to print a list and make it look pretty
 # input:
 # steps:
 # output:
 
 def list_print(grocery_list)
-  puts grocery_list
+  grocery_list.each do |item, qty|
+    puts "Item: #{item}... Quantity: #{qty}"
+  end
 end
+
+list_print(our_list)
