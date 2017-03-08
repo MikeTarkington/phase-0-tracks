@@ -121,3 +121,20 @@ end
 
 #=======================================================================
 # Reflection Section
+=begin
+What are the differences between the two different hash syntaxes shown in the state_data file?
+- There is syntax used for keys which are strings and keys which are symbols.  The main difference is that symols are immutable and can save processing power (and therefor improve speed) if they are used repeatedly and their object ID doesn't need to be unique.  Srings have their object ID for each occurance of the same string and they come with more versatile editing feature which can unnecessarily slow down processing.
+
+What does require_relative do? How is it different from require?
+- Require relative sets requirement that this file be connected to the corresponding named file situated in the same directory. Require allows for connections to be made with files outside the directory but depends on a more specific declaration of the file path location whether local or hosted over the internet.
+
+What are some ways to iterate through a hash?
+- Using a loop or a built in method such as `.each` or `.map`
+
+When refactoring virus_effects, what stood out to you about the variables, if anything?
+- No arguments needed to be passed in because it only utilized method calls of other methods wihin the class.  Furthermore, the implicit return of virus_effects wasn't important because the methods that were called trigger print statements.
+
+What concept did you most solidify in this challenge?
+- Use of require vs require_relative was a very useful lesson.  I also gained a better undrestanding of when we don't actually need to have arguments passed to a method becuase the method uses instance variables which persist through the instance of that class and are defined at the initialization as class attributes.  It was also great to have more practice learning to use hashes within hashes and solidify my understanding of when to use a symbol vs a string for a key.
+
+=end
