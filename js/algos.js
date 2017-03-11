@@ -40,15 +40,15 @@ console.log(longest_string_getter(["test one","test", "testing success", "farts"
 
 var pairMatchFinder = function(pair1, pair2) {
   var match = false;
-  for (count = 0; count < pair1.length; count++) {
-    if(pair1['name'] === pair2['name'] || pair1['age'] === pair2['age']) {
-      console.log(pair1['age']);
-      console.log(pair2['age']);
+  for (count = 0; count < Object.keys(pair1).length; count++) {
+    if (pair1['name'] === pair2['name'] || pair1['age'] === pair2['age']) {
       var match = true;
-      return true;
     }
   }
   return match;
 };
 
-console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Tamir", age: 54}))
+console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Tamir", age: 54})) //age match
+console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Tamir", age: 40})) //no match
+console.log(pairMatchFinder({name: "Tamir", age: 54}, {name: "Tamir", age: 54})) // name and age match
+console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Steven", age: 40})) // name match
