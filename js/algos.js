@@ -15,7 +15,7 @@ var longest_string_getter = function(array) {
       longest_string = array[count]
     }
   }
-  return longest_string;
+  return "The longest string was: " + longest_string;
 };
 
 console.log(longest_string_getter(["test one","test", "testing success", "farts"]));
@@ -72,15 +72,21 @@ var arrayer = function(x) {
   array = [];
   for( i = 0; i < x; i++) {
     for( count = 0; count < Math.floor((Math.random() * 10) + 1); count++) {
-      string += alpha.charAt(Math.floor(Math.random() * alpha.length) + 1);
+      // string += alpha.charAt(Math.floor(Math.random() * alpha.length) + 1);
+      string = Math.random().toString(36).substr(2, Math.floor((Math.random() * 10) + 1));
     }
     array.push(string)
   }
   return array
 }
 
-console.log(arrayer(Math.floor((Math.random() * 10) + 1)));
+//--DRIVER CODE--
 
+array = []
+for( i = 0; i < 10; i++) {
+  console.log(array = arrayer(Math.floor((Math.random() * 10) + 1)));
+  console.log(longest_string_getter(array));
+}
 
 // function makeid()
 // {
