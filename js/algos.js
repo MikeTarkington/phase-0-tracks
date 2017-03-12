@@ -52,3 +52,43 @@ console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Tamir", age: 54})
 console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Tamir", age: 40})) //no match
 console.log(pairMatchFinder({name: "Tamir", age: 54}, {name: "Tamir", age: 54})) // name and age match
 console.log(pairMatchFinder({name: "Steven", age: 54}, {name: "Steven", age: 40})) // name match
+
+//RELEASE 2
+
+// Write a function that takes an integer for length, and builds and returns an array of strings of the given length. So if we ran your function with an argument of 3, we would get an array of 3 random words back (the words don't have to be actual sensical English words -- "nnnnfph" totally counts). The words should be of randomly varying length, with a minimum of 1 letter and a maximum of 10 letters. (This involves a new trick, generating a random number, that you'll have to look up, but the solution on how to do so is relatively straightforward.)
+// Add driver code that does the following 10 times: generates an array, prints the array, feeds the array to your "longest word" function, and prints the result.
+
+
+//--PSEUDO CODE--
+//define function taking intenger
+//returns array of strings with the number of strings based on the number
+  //Math.floor rounds down to the nearest whole number but since there's a +1 it means the lowest whole number .floor would round down to is 1
+  //Math.random is generating random float numbers so multiplying by 10 brings an ingeter to the left of the decimal point which then gives us a whole number we can round down to with the .floor
+//random word length looping until the count of the randm number has been generated
+
+var arrayer = function(x) {
+  alpha = "abcdefghijklmnopqrstuvwxyz";
+  string = "";
+  array = [];
+  for( i = 0; i < x; i++) {
+    for( count = 0; count < Math.floor((Math.random() * 10) + 1); count++) {
+      string += alpha.charAt(Math.floor(Math.random() * alpha.length) + 1);
+    }
+    array.push(string)
+  }
+  return array
+}
+
+console.log(arrayer(Math.floor((Math.random() * 10) + 1)));
+
+
+// function makeid()
+// {
+//     var text = "";
+//     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+//
+//     for( var i=0; i < 5; i++ )
+//         text += possible.charAt(Math.floor(Math.random() * possible.length));
+//
+//     return text;
+// }
