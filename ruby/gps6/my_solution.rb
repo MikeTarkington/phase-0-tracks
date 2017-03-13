@@ -23,7 +23,7 @@ class VirusPredictor
     @speed = 0
   end
 
-  #it calls next two subsequent methods and uses instance attributes as arguments
+  #it calls a method for mathematic processing based on conditional logic and the next two subsequent methods and uses instance variables as arguments for the print statements of those methods
   def virus_effects
     projection_generator
     predicted_deaths
@@ -32,6 +32,7 @@ class VirusPredictor
 
   private
 
+#this is the method used to refactor the predicted_deaths and speed_of_spread methods so that they no longer repeat conditional logic.
   def projection_generator
     if @population_density >= 200
       @number_of_deaths = (@population * 0.4).floor
@@ -51,7 +52,7 @@ class VirusPredictor
     end
   end
 
-  #uses control flow to set number_of_deaths value with equation and then rounds it down
+  #prints a statement including interpolated instance variables based on calculations from projection_generator
   def predicted_deaths
     # predicted deaths is solely based on population density
     # if @population_density >= 200
@@ -70,7 +71,7 @@ class VirusPredictor
 
   end
 
-  #uses control flow to set number_of_deaths value with equation
+  #prints a statement included interpolated instance variables based on calculations from projection_generator
   def speed_of_spread #in months
     # We are still perfecting our formula here. The speed is also affected
     # by additional factors we haven't added into this functionality.
