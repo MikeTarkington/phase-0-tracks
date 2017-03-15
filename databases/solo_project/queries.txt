@@ -72,16 +72,17 @@ spirited away|2001|true
 grave of the fireflies|1998|true
 up|2009|true
 eternal sunshine of the spotless mind|2004|true
-NOTE: All records have a corresponding genre id so they're all returned by the query.
+NOTE: One of the records "seven samurai" didn't have a matching genre id in the genres table so it wasn't returned.
 
-SELECT title, year, mike_fav FROM top_movies LEFT JOIN genres ON top_movies.genre_id = genres.id;
-fight club|1999|true
-shawshank redemption|1994|true
-the dark knight|2008|false
-spirited away|2001|true
-grave of the fireflies|1998|true
-up|2009|true
-eternal sunshine of the spotless mind|2004|true
-NOTE: All records have a corresponding genre id so they're all returned by the query.
+SELECT title, year, mike_fav, genres.genre FROM top_movies LEFT JOIN genres ON top_movies.genre_id = genres.id;
+fight club|1999|true|drama
+shawshank redemption|1994|true|drama
+the dark knight|2008|false|crime
+spirited away|2001|true|anime fantasy
+grave of the fireflies|1998|true|anime drama
+up|2009|true|3d animation - fantasy/comedy/drama
+eternal sunshine of the spotless mind|2004|true|romance/sci-fi
+seven samurai|1954|true|
+NOTE: This returned all the records in the "left" table even though the "seven samurai" record didn't have a matching genre ID. In this query I included the genres for each film.  The records that did have a corresponding genre ID had their genres shown as result of the query while "seven samurai" didn't.
 
 "Error: RIGHT and FULL OUTER JOINs are not currently supported"
