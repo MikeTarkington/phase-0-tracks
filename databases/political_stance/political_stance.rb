@@ -20,11 +20,17 @@ create_users_table_cmd = <<-SQL
     name VARCHAR(255),
     email VARCHAR(255),
     password VARCHAR(255),
-    question_id INT,
-    answer_id INT,
+    answer_id_1 INT,
+    answer_id_2 INT,
+    answer_id_3 INT,
+    answer_id_4 INT,
+    answer_id_5 INT,
     political_stance INT,
-    FOREIGN KEY (question_id) REFERENCES questions(id),
-    FOREIGN KEY (answer_id) REFERENCES answers(id),
+    FOREIGN KEY (answer_id_1) REFERENCES answers(id),
+    FOREIGN KEY (answer_id_2) REFERENCES answers(id),
+    FOREIGN KEY (answer_id_3) REFERENCES answers(id),
+    FOREIGN KEY (answer_id_4) REFERENCES answers(id),
+    FOREIGN KEY (answer_id_5) REFERENCES answers(id),
     FOREIGN KEY (political_stance) REFERENCES quiz_results(id)
   )
 SQL
@@ -92,8 +98,73 @@ db.execute(create_quiz_results_table_cmd)
 #   create_user(db, Faker::Name.name, Faker::Internet.email, Faker::Internet.password, )
 # end
 
-# explore ORM by retrieving data
+# explore ORM by retrieving data - prints the names and emails included in the users table
 # users = db.execute("SELECT * FROM users")
 # users.each do |user|
 #  puts "#{user['name']} is #{user['email']}"
 # end
+
+# adding a test user for query tests of foreign key table links
+# db.execute("INSERT INTO users (name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance) VALUES ('testy von bigelsby', 'fake@email.com', 'fakepassword', 1, 2, 3, 4, 5, 4)")
+
+
+# -- BUSINESS LOGIC
+
+def stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
+  left = 0
+  right = 0
+  if answer_id_1
+end
+
+def create_user(db, name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance)
+  db.execute("INSERT INTO #{users} (name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", name, email, password, answer_id_1, answer_id_2, answer_id_3, answer_id_4, answer_id_5, political_stance)
+end
+
+# --USER INTERFACE--
+
+puts "Welcome to the mini political position assement app!"
+puts " "
+puts "Enter the basics to create your account and then answer a hadful of quick questions to start getting a sense of your true political standing.  Obviously ones views and political opinions are too complex to be summed up in 5 simple questions, but it's a good start on our journey toward better citizenship."
+puts " "
+puts "What is your name?"
+name = gets.chomp
+
+puts "What is your email address?"
+email = gets.chomp
+
+puts "What is your password?"
+password = gets.chomp
+
+puts "Answer the following questions by entering the number corresponding with your degree of agreement with each statement.  The options are as follows:"
+puts "1 = Strongly Agree"
+puts "2 = Strongly Disagree"
+puts "3 = Somewhat Agree"
+puts "4 = Somewhat Disagree"
+puts "5 = Unsure"
+
+questions = db.execute("SELECT * FROM questions")
+
+puts "Question 1:"
+puts questions[0][1]
+puts "Your answer number:"
+answer_1 = gets.chomp
+
+puts "Question 2:"
+puts questions[1][1]
+puts "Your answer number:"
+answer_2 = gets.chomp
+
+puts "Question 3:"
+puts questions[2][1]
+puts "Your answer number:"
+answer_3 = gets.chomp
+
+puts "Question 4:"
+puts questions[3][1]
+puts "Your answer number:"
+answer_4 = gets.chomp
+
+puts "Question 5:"
+puts questions[4][1]
+puts "Your answer number:"
+answer_5 = gets.chomp
