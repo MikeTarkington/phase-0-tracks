@@ -238,5 +238,18 @@ puts questions[4][1]
 puts "Your answer number:"
 answer_5 = gets.chomp.to_i
 
-p political_stance = stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
+political_stance = stance_determinator(answer_1, answer_2, answer_3, answer_4, answer_5)
 create_user(db, name, email, password, answer_1, answer_2, answer_3, answer_4, answer_5, political_stance)
+quiz_result_stance = db.execute("SELECT quiz_results.result FROM users JOIN quiz_results ON quiz_results.id = users.political_stance WHERE email = '#{email}'")
+quiz_result_stance = quiz_result_stance[0]['result']
+puts " "
+puts "Based on the few questions you've answered we estimate you're probably a \"#{quiz_result_stance}\"."
+
+# working on queries to show each individual answer for the questions and then offering a chance for them to update
+# answers = db.execute("SELECT answers.answer FROM users
+#   JOIN answers ON answers.id = users.answer_id_1")
+#
+# p answers
+#
+# puts "Your answers were as follows:"
+# puts questions[0][1]
