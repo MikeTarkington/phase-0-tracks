@@ -244,6 +244,7 @@ quiz_result_stance = db.execute("SELECT quiz_results.result FROM users JOIN quiz
 quiz_result_stance = quiz_result_stance[0]['result']
 puts " "
 puts "Based on the few questions you've answered we estimate you're probably a \"#{quiz_result_stance}\"."
+puts "It shouldn't be too surprising if you don't agree with this assessment because there's a good chance it's not very accurate. We recommend researching what it means to have liberal vs conservative political views and trying to look inside yourself to consider where you stand on that spectrum."
 
 # working on queries to show each individual answer for the questions and then offering a chance for them to update
 # answers = db.execute("SELECT answers.answer FROM users
