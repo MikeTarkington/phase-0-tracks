@@ -1,0 +1,88 @@
+RELEASE 2
+1. Display the information in one table (either table is fine).
+  SELECT * FROM top_movies;
+  1|fight club|1999|true|1
+  2|shawshank redemption|1994|true|1
+  3|the godfather|1972|false|1
+  4|the dark knight|2008|false|2
+  5|spirited away|2001|false|3
+  6|grave of the fireflies|1998|true|4
+  7|up|2009|true|5
+  8|eternal sunshine of the spotless mind|2004|true|6
+
+2. Update an item that meets some condition (you can choose a condition that makes sense).
+  UPDATE top_movies SET mike_fav="true" WHERE title="spirited away";
+  SELECT * FROM top_movies WHERE title="spirited away";
+  5|spirited away|2001|true|3
+
+3. Display the information in both tables using one query.
+  SELECT * FROM top_movies, genres WHERE top_movies.genre_id = genres.id;
+  1|fight club|1999|true|1|1|drama
+  2|shawshank redemption|1994|true|1|1|drama
+  3|the godfather|1972|false|1|1|drama
+  4|the dark knight|2008|false|2|2|crime
+  5|spirited away|2001|true|3|3|anime fantasy
+  6|grave of the fireflies|1998|true|4|4|anime drama
+  7|up|2009|true|5|5|3d animation - fantasy/comedy/drama
+  8|eternal sunshine of the spotless mind|2004|true|6|6|romance/sci-fi
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+  SELECT top_movies.title, genres.genre FROM top_movies JOIN genres ON top_movies.genre_id = genres.id;
+  fight club|drama
+  shawshank redemption|drama
+  the godfather|drama
+  the dark knight|crime
+  spirited away|anime fantasy
+  grave of the fireflies|anime drama
+  up|3d animation - fantasy/comedy/drama
+  eternal sunshine of the spotless mind|romance/sci-fi
+
+5. Delete an item that meets some condition (you can choose a condition that makes sense).
+  DELETE FROM top_movies WHERE title="the godfather";
+  SELECT * FROM top_movies;
+  1|fight club|1999|true|1
+  2|shawshank redemption|1994|true|1
+  4|the dark knight|2008|false|2
+  5|spirited away|2001|true|3
+  6|grave of the fireflies|1998|true|4
+  7|up|2009|true|5
+  8|eternal sunshine of the spotless mind|2004|true|6
+
+RELEASE 3
+1. There are lots of different kinds of joins. What are they? Can you apply different conditions to a join to change what's displayed? Can you bookmark any good diagrams that will help you tell different joins apart in the future?
+
+inner join - Select all records from Table A and Table B, where the join condition is met.
+
+left join - Select all records from Table A, along with records from Table B for which the join condition is met (if at all).
+
+right join - Select all records from Table B, along with records from Table A for which the join condition is met (if at all).
+
+full join - Select all records from Table A and Table B, regardless of whether the join condition is met or not.
+
+cross join - The SQL CROSS JOIN produces a result set which is the number of rows in the first table multiplied by the number of rows in the second table if no WHERE clause is used along with CROSS JOIN. This kind of result is called as Cartesian Product. If WHERE clause is used with CROSS JOIN, it functions like an INNER JOIN.
+
+
+2. Try a few different joins in your database, and record the commands and the output in queries.txt.
+
+SELECT title, year, mike_fav FROM top_movies INNER JOIN genres ON top_movies.genre_id = genres.id;
+fight club|1999|true
+shawshank redemption|1994|true
+the dark knight|2008|false
+spirited away|2001|true
+grave of the fireflies|1998|true
+up|2009|true
+eternal sunshine of the spotless mind|2004|true
+NOTE: One of the records "seven samurai" didn't have a matching genre id in the genres table so it wasn't returned.
+
+SELECT title, year, mike_fav, genres.genre FROM top_movies LEFT JOIN genres ON top_movies.genre_id = genres.id;
+fight club|1999|true|drama
+shawshank redemption|1994|true|drama
+the dark knight|2008|false|crime
+spirited away|2001|true|anime fantasy
+grave of the fireflies|1998|true|anime drama
+up|2009|true|3d animation - fantasy/comedy/drama
+eternal sunshine of the spotless mind|2004|true|romance/sci-fi
+seven samurai|1954|true|
+NOTE: This returned all the records in the "left" table even though the "seven samurai" record didn't have a matching genre ID. In this query I included the genres for each film.  The records that did have a corresponding genre ID had their genres shown as result of the query while "seven samurai" didn't.
+
+"Error: RIGHT and FULL OUTER JOINs are not currently supported"
