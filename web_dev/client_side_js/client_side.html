@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+  <head>
+   <link href="/normalize.css" rel="stylesheet">
+   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+   <title>Harini's Webpage</title>
+   <style>
+     header {
+      text-align: center;
+      background: url("http://i.imgur.com/kVO1mgr.jpg");
+      background-size: cover;
+      color: white;
+     }
+     a {
+      color: white;
+     }
+     h1 {
+      font-size: 30px;
+     }
+     img {
+      margin: 10px 0px 0px 0px;
+      border: 2px solid white;
+      border-radius: 100%;
+     }
+     ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+     }
+     li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+     }
+     article {
+      max-width: 500px;
+      padding: 20px;
+      margin: 0 auto;
+     }
+     .passions {
+      display: none;
+     }
+     @media (max-width: 500px) {
+      h1 {
+        font-size: 36px;
+        padding: 5px;
+      }
+      li {
+        padding: 5px;
+        display: block;
+      }
+     }
+    </style>
+  </head>
+  <body>
+   <header>
+    <a name="top"></a>
+    <img src="http://i.imgur.com/9p2DQ4l.jpg">
+    <h1>Harini Balakrishnan</h1>
+    <ul>
+      <li><a href="#aboutme">About Me</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#passion">Passion</a></li>
+      <li><a href="#hobby">Hobby</a></li>
+    </ul>
+   </header>
+   <article>
+    <a name="aboutme"> </a>
+     <h2>About Me </h2>
+     <p>Hello! My name is Harini, an aspiring software engineer. I was born    in Bangalore,India and moved to California last year.
+
+My background is in Information technology and Engineering. I obtained a Bachelor of Technology major in Information Technology in the prestigious Anna University with an overall GPA of 3.63 in my under-graduate degree. I started my career in 2014 as a AX Functional consultant in Microsoft Dynamics in India.Currently, I am learning the technologies involved inweb development with an intention to proceed my career as a web developer.
+One thing I really like about programming is being able to play around with my code and the ability to instantly see the changes that I apply.</p>
+    <button><a href="#top">Back to top</a></button>
+   </article>
+   <article>
+    <a name="education"></a>
+    <h2>Eduction</h2>
+    <h3> Vision Acuity Test - My final year project</h3>
+    <p>During the final year of undergraduate studies, In a team of three, we built an app from scratch in android that helps people to test vision power deficiency and color blindness. It was built using Android
+SDK with backend database as DB2. The work was demoed live to more than 300 students and professors in my university and got published as a research paper in the IRAJ magazine
+<div>
+<ul>
+<li> <a href="http://iraj.in/up_proc/pdf/44-139281265615-20.pdf">IRAJ link for my research paper  (.pdf )</a>
+</li>
+</ul>
+</div>
+This project received recognition and got selected in the IEEE “UKSim2014” conference at Cambridge University, London.</p>
+    <button><a href="#top">Back to top</a></button>
+  </article>
+  <article><a name="passion"></a>
+    <h2>Passion</h2>
+    <button onclick="showToggleFunction()">See My Passions</button>
+      <div id="myDIV">
+        <h3  class = "passions">Painting and Designing</h3>
+        <p class = "passions">Painting is an art of playing with colors and textures. Since my childhood I have a great passion in painting which lead me to learn various types of painting like warli painting, tanjore painting, glass painting and metal embossing. After moving to California, I started to decorate my interior house with eco-friendly paintings made by me. During this process, I was fascinated by the eco-friendly project ideas and their usage.</p>
+      </div>
+    <button><a href="#top">Back to top</a></button>
+  </article>
+  <article>
+    <a name="hobby"></a>
+    <h2>Hobby</h2>
+    <h3>Cooking and Baking - Fun!</h3>
+    <p>Baking is a wonderful way to spark a lifelong love of the kitchen in your children. I love to make muffins and cookies. In my life baking and cooking is like therapy that gives me relaxation and happiness. It's messy (and therefore fun!) and the results are hard to resist.</p>
+    <button><a href="#top">Back to top</a></button>
+    <p>Click the button to create a P element with some text.</p>
+    <button onclick="appendFunction()">Try it</button>
+  </article>
+  <button id = "date_button">Display Date</button>
+  <p id = "display_date"></p>
+ <script type='text/javascript' src='clientside_javascript.js'></script>
+</body>
+</html>
