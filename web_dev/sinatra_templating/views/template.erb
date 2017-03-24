@@ -1,0 +1,33 @@
+<html>
+<head>
+  <title>Campus Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Campus Management System</h1>
+  <p>Welcome to the Campus Management System.</p>
+  <form action="/template/campuses" method="POST">
+    <input type="text" name="campus" placeholder="Campus">
+    <button type="submit">Save</button>
+  </form>
+  <p>Create a new campus with this form:</p>
+  <ul>
+    <% @campuses.each do |campus| %>
+      <li><%= campus['campus'] %></li>
+    <% end %>
+  </ul>
+
+  <form action="/template" method="POST">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="campus" placeholder="Campus">
+    <input type="text" name="age" placeholder="Age">
+    <button type="submit">Save</button>
+  </form>
+  <p>Create a new student with this form:</p>
+  <ul>
+    <% @students.each do |student| %>
+      <li><%= student['name'] %>,... <%= student['campus']%>,... <%= student['age'] %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
